@@ -1,0 +1,111 @@
+How to create a Testng xml ?
+Go to Setting -->type "testng xml" and install the plugin and restart your IDE.
+you can see that testng xml in intellij IDE.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/SSDADMIN/IdeaProjects/JavaSelenium2023/src/java_Selenium_automation/Testng_framework">
+        <classes>
+            <class name="java_Selenium_automation.Testng_framework.Testng_framework_pgm">
+                <methods>
+                    <include name="setup"/>
+                    <include name="SignIn_Btn_test"/>
+                    <include name="Login_test"/>
+                    <include name="logout_test"/>
+                    <include name="teardown"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+How to run the TestNG xml file?
+After creating the xml file , Right click the xml file and run
+
+How to Generate the TestNG Report?
+Go to Run -->click Edit Configuration -->Click Listeners-->click "+" icon
+type "EmailableReporter"
+type "FailedReporter"
+type "HTMLReporter"
+
+click Apply and Ok.
+
+How to Run Grouping test in testNG?
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/SSDADMIN/IdeaProjects/JavaSelenium2023/src/java_Selenium_automation/Testng_framework/Testng_Grouping_test_pgm.java">
+        <groups>
+            <run>
+                <include name="Regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="java_Selenium_automation.Testng_framework.Testng_Grouping_test_pgm"/>
+        </classes>
+    </test>
+</suite>
+
+How to Run Parameterization test in Testng xml?
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="Browser" value="Chrome"/>
+    <parameter name="Url" value="http://www.automationpractice.pl/index.php"/>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/SSDADMIN/IdeaProjects/JavaSelenium2023/src/java_Selenium_automation/Testng_framework/Testng_parameterization_test_pgm.java">
+          <classes>
+              <class name = "java_Selenium_automation.Testng_framework.Testng_parameterization_test_pgm"/>
+          </classes>
+    </test>
+</suite>
+
+How to run test in Parallel using testng xml?
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="methods" thread-count="1">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/SSDADMIN/IdeaProjects/JavaSelenium2023/src/java_Selenium_automation/Testng_framework/Testng_Parallel_test_pgm.java">
+        <classes>
+            <class name="java_Selenium_automation.Testng_framework.Testng_Parallel_test_pgm">
+                <methods>
+                    <include name="SignIn_Btn_test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+What is Listener?
+Listener is a kind of interface or set of methods
+and those methods will automatically triggered based upon the result of your test.
+TC Failed
+TC Success
+TC Skipped
+TC Start
+
+How to run Listener and custom Listener in testng xml?
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="java_Selenium_automation.Testng_framework.Testng_Custom_Listener"/>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/SSDADMIN/IdeaProjects/JavaSelenium2023/src/java_Selenium_automation/Testng_framework/Testng_main_Listener_xml_pgm.java">
+        <classes>
+            <class name="java_Selenium_automation.Testng_framework.Testng_main_Listener_xml_pgm">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                    <include name="test3"/>
+                    <include name="test4"/>
+                    <include name="test5"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
